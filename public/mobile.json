@@ -204,7 +204,7 @@
         },
         "colors": [ "Graphite", "Icy Blue" ],
         "image": "https://www.mobiledokan.com/media/motorola-moto-g-5g-2025-sapphire-blue-official-image.webp",
-        "category": "Midrange"
+        "category": "Premium"
     },
     {
         "id": 10,
@@ -250,7 +250,7 @@
         },
         "colors": [ "Phantom Black", "Racing Red" ],
         "image": "https://s.alicdn.com/@sc04/kf/Hec387aa36943483189d545c0844016d8A/Original-Motorola-Moto-G100-Pro-5G-Smart-Phone-Dimensity-7300-6.7inch-LTPO-50MP-AI-Camera-30W-Fast-Charge-50MP-Rear-Camera-OTA.jpg_300x300.jpg",
-        "category": "Performance"
+        "category": "Premium"
     },
     {
         "id": 12,
@@ -273,7 +273,7 @@
         },
         "colors": [ "Graphite", "Cream" ],
         "image": "https://www.mobiledokan.co/wp-content/uploads/2025/01/Motorola-Moto-G-Stylus-5G-2025-Surf-the-Web.webp",
-        "category": "Productivity"
+        "category": "Flagship"
     },
     {
         "id": 13,
@@ -296,7 +296,7 @@
         },
         "colors": [ "Black", "Champagne" ],
         "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8Dorqkc2Qa6WhtrCkAgAYByy2kLN_29CC4fB0uA47zTJ1FvBXIWZ5Flp8XypzHh2D-Bk&usqp=CAU",
-        "category": "Entry"
+        "category": "Budget"
     },
     {
         "id": 14,
@@ -319,7 +319,7 @@
         },
         "colors": [ "Nebula Blue", "Steel" ],
         "image": "https://www.mobileana.com/wp-content/uploads/2024/11/Motorola-Moto-G-2025-Blue.webp",
-        "category": "Entertainment"
+        "category": "Midrange"
     },
     {
         "id": 15,
@@ -388,7 +388,7 @@
         },
         "colors": [ "Desert Gold", "Midnight" ],
         "image": "https://cdn.shopz.com.bd/2021/01/motorola-moto-g9-plus-1.jpg",
-        "category": "Battery"
+        "category": "Premium"
     },
     {
         "id": 18,
@@ -411,7 +411,7 @@
         },
         "colors": [ "Coral", "Onyx" ],
         "image": "https://cdn.shopify.com/s/files/1/0024/9803/5810/files/846204-Product-0-I-638961749403455599_600x600.jpg?v=1760578206",
-        "category": "Compact"
+        "category": "Budget"
     },
     {
         "id": 19,
@@ -434,6 +434,6 @@
         },
         "colors": [ "Emerald", "Slate" ],
         "image": "https://www.muthophone.com.bd/image/cache/catalog/mobiles/motorola/motorola-one-vision/motorola-one-vision-03-600x600.jpeg",
-        "category": "Camera"
+        "category": "Flagship"
     }
 ]

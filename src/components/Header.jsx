@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 
 const Header = () => {
   return (
@@ -19,12 +20,18 @@ const Header = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center md:justify-start">
-            <button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition transform hover:scale-105">
+            <Link
+              to="/products"
+              className="border border-blue-400 bg-blue-400 hover:bg-white hover:text-blue-400  py-3 px-8 rounded-full font-semibold transition transform hover:scale-105"
+            >
               Shop Now
-            </button>
-            <button className="border border-blue-400 hover:bg-blue-400 hover:text-gray-900 py-3 px-8 rounded-full font-semibold transition transform hover:scale-105">
-              Explore Deals
-            </button>
+            </Link>
+            <Link
+              to="/about"
+              className="border border-blue-400 hover:bg-blue-400  py-3 px-8 rounded-full font-semibold transition transform hover:scale-105"
+            >
+              About Us
+            </Link>
           </div>
         </div>
 

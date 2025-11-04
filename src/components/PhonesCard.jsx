@@ -1,7 +1,8 @@
 import React from "react";
+import { Link } from "react-router";
 
 const PhoneCard = ({ phone }) => {
-  const { name, details, image, model, price, rating, title } = phone;
+  const { id, name, details, image, model, price, rating, title } = phone;
 
   return (
     <div className="bg-white rounded-xl  shadow transition p-4 flex flex-col">
@@ -10,7 +11,7 @@ const PhoneCard = ({ phone }) => {
         <img
           src={image}
           alt={name}
-          className="w-40 h-40 object-contain hover:scale-105 transition duration-300"
+          className="w-40 h-40 object-cover hover:scale-105 transition duration-300"
         />
       </div>
 
@@ -37,9 +38,12 @@ const PhoneCard = ({ phone }) => {
         <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg font-medium transition">
           Add to cart
         </button>
-        <button className="border border-blue-500 hover:bg-blue-500 hover:text-white text-blue-500 px-4 py-2 rounded-lg font-medium transition">
+        <Link
+          to={`/product-details/${id}`}
+          className="border border-blue-500 hover:bg-blue-500 hover:text-white text-blue-500 px-4 py-2 rounded-lg font-medium transition"
+        >
           Details
-        </button>
+        </Link>
       </div>
     </div>
   );
