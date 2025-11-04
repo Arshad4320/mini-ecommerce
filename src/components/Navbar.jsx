@@ -29,14 +29,14 @@ const Navbar = () => {
   );
 
   return (
-    <nav className="bg-gray-100 p-4 shadow-md sticky top-0 z-50">
-      <div className="max-w-11/12 mx-auto flex justify-between items-center">
+    <nav className="bg-gray-100 p-4 shadow-md sticky top-0 z-50 w-full backdrop-blur-md">
+      <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo */}
         <h1 className="text-2xl font-bold text-blue-600">ShopSmart</h1>
+
         {/* Desktop Menu */}
-        <div className="hidden lg:flex items-center space-x-6">
-          {navLinks}
-        </div>{" "}
+        <div className="hidden lg:flex items-center space-x-6">{navLinks}</div>
+
         <div className="space-x-6 hidden lg:block">
           <NavLink
             to="/cart"
@@ -51,6 +51,7 @@ const Navbar = () => {
             Login
           </NavLink>
         </div>
+
         {/* Mobile Menu Button */}
         <div className="lg:hidden">
           <Hamburger toggled={isOpen} toggle={setOpen} />
@@ -59,14 +60,13 @@ const Navbar = () => {
 
       {/* Mobile Dropdown Menu */}
       <div
-        className={`lg:hidden absolute top-20 py-4 left-0 w-full bg-white flex flex-col items-center space-y-4 transition-all duration-300 ease-in-out ${
+        className={`lg:hidden absolute top-20 left-0 w-full bg-white flex flex-col items-center space-y-4 py-4 transition-all duration-300 ease-in-out ${
           isOpen
             ? "opacity-100 translate-y-0 visible"
             : "opacity-0 -translate-y-5 invisible"
         }`}
       >
         {navLinks}
-
         <NavLink
           to="/cart"
           className="text-lg text-gray-700 hover:text-blue-600 transition"

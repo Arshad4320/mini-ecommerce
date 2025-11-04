@@ -2,7 +2,7 @@ import React from "react";
 
 const Header = () => {
   return (
-    <header className="bg-gradient-to-r from-gray-900 via-blue-900 to-indigo-800 text-white py-20 relative overflow-hidden">
+    <header className="bg-gradient-to-r from-gray-900 via-blue-900 to-indigo-800 text-white py-32 relative overflow-hidden">
       {/* Background Glow Effect */}
       <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_center,rgba(0,0,255,0.2),transparent_70%)]"></div>
 

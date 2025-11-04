@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../components/Header";
 import TrendingPhone from "../components/TrendingPhone";
+import BestSellProducts from "../components/BestSellProducts";
 
 const Home = () => {
   return (
@@ -10,6 +11,9 @@ const Home = () => {
       </header>
       <section>
         <TrendingPhone />
+      </section>
+      <section>
+        <BestSellProducts />
       </section>
     </div>
   );

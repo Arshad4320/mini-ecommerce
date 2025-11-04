@@ -4,7 +4,7 @@ const PhoneCard = ({ phone }) => {
   const { name, details, image, model, price, rating, title } = phone;
 
   return (
-    <div className="bg-white rounded-2xl  shadow-md hover:shadow-xl transition p-4 flex flex-col">
+    <div className="bg-white rounded-xl  shadow transition p-4 flex flex-col">
       {/* Product Image */}
       <div className="w-full h-56 flex justify-center items-center bg-gray-100 rounded-xl overflow-hidden">
         <img
