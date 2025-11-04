@@ -1,38 +1,71 @@
 import React, { useState } from "react";
-import Hamburger from "hamburger-react";
 import { NavLink } from "react-router";
+import Hamburger from "hamburger-react";
+
 const Navbar = () => {
   const [isOpen, setOpen] = useState(false);
-  const route = (
-    <div className="space-x-5 ">
-      <NavLink className="text-lg " to="/">
+
+  const navLinks = (
+    <>
+      <NavLink
+        to="/"
+        className="text-lg text-gray-700 hover:text-blue-600 transition"
+      >
         Home
       </NavLink>
-      <NavLink className="text-lg " to="/about">
+      <NavLink
+        to="/about"
+        className="text-lg text-gray-700 hover:text-blue-600 transition"
+      >
         About
       </NavLink>
-      <NavLink className="text-lg " to="/product">
+      <NavLink
+        to="/products"
+        className="text-lg text-gray-700 hover:text-blue-600 transition"
+      >
         Products
       </NavLink>
-    </div>
+      <NavLink
+        to="/cart"
+        className="text-lg text-gray-700 hover:text-blue-600 transition"
+      >
+        Cart
+      </NavLink>
+      <NavLink
+        to="/login"
+        className="text-lg text-gray-700 hover:text-blue-600 transition"
+      >
+        Login
+      </NavLink>
+    </>
   );
-  return (
-    <div className="bg-gray-100 p-5">
-      {/* <Hamburger toggled={isOpen} toggle={setOpen} /> */}
 
-      <div className="w-10/12 mx-auto flex justify-between">
-        <p>logo</p>
-        {route}
-        <div className="space-x-5">
-          <NavLink className="text-lg" to="/cart">
-            Cart
-          </NavLink>
-          <NavLink className="text-lg" to="/login">
-            Login
-          </NavLink>
+  return (
+    <nav className="bg-gray-100 p-4 shadow-md sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto flex justify-between items-center">
+        {/* Logo */}
+        <h1 className="text-2xl font-bold text-blue-600">ShopSmart</h1>
+
+        {/* Desktop Menu */}
+        <div className="hidden lg:flex items-center space-x-6">{navLinks}</div>
+
+        {/* Mobile Menu Button */}
+        <div className="lg:hidden">
+          <Hamburger toggled={isOpen} toggle={setOpen} />
         </div>
       </div>
-    </div>
+
+      {/* Mobile Dropdown Menu */}
+      <div
+        className={`lg:hidden absolute top-20 left-0 w-full bg-white flex flex-col items-center space-y-4 transition-all duration-300 ease-in-out ${
+          isOpen
+            ? "opacity-100 translate-y-0 visible"
+            : "opacity-0 -translate-y-5 invisible"
+        }`}
+      >
+        {navLinks}
+      </div>
+    </nav>
   );
 };
 
