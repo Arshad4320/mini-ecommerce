@@ -21,6 +21,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/products",
+        loader: () => fetch("/mobile.json"),
         element: <Products />,
       },
       {
