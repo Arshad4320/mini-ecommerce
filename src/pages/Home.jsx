@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../components/Header";
 import TrendingPhone from "../components/TrendingPhone";
 import BestSellProducts from "../components/BestSellProducts";
+import MarqueeCard from "../components/MarqueeCard";
 
 const Home = () => {
   return (
@@ -14,6 +15,9 @@ const Home = () => {
       </section>
       <section>
         <BestSellProducts />
+      </section>
+      <section>
+        <MarqueeCard />
       </section>
     </div>
   );
