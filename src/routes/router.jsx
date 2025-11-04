@@ -6,8 +6,7 @@ import Products from "../pages/Products";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import ProductDetails from "../pages/ProductDetails";
-
-export const router = createBrowserRouter([
+const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
@@ -39,3 +38,5 @@ export const router = createBrowserRouter([
     element: <Register />,
   },
 ]);
+
+export default router;
