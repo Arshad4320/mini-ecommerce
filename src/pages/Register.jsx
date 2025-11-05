@@ -1,8 +1,34 @@
-import React, { useState } from "react";
+import { updateCurrentUser } from "firebase/auth";
+import React, { use, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import { AuthContext } from "../authcontext/AuthProvider";
+import { toast } from "react-toastify";
 
 const Register = () => {
+  // const userInfo = { createUser, user, loginUser, logOutUser };
+  const navigate = useNavigate();
+  const { createUser } = use(AuthContext);
+  const handleRegister = (e) => {
+    e.preventDefault();
+
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    createUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        updateCurrentUser(user, (displayName = name));
+        e.target.reset();
+        toast.success("user created successfully");
+        navigate("/");
+        console.log("form update user", user);
+      })
+      .catch((err) => {
+        console.log(err.errorMessage);
+      });
+  };
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
       <div className="bg-white w-full max-w-lg rounded-2xl shadow-md p-8">
@@ -10,7 +36,7 @@ const Register = () => {
           Create Account
         </h2>
 
-        <form className="space-y-4">
+        <form onSubmit={handleRegister} className="space-y-4">
           {/* Name */}
           <div>
             <label className="block text-gray-700 font-medium mb-1">Name</label>
@@ -41,7 +67,7 @@ const Register = () => {
               Password
             </label>
             <input
-              name="address"
+              name="password"
               type="password"
               placeholder="password"
               rows="3"
