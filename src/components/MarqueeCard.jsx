@@ -2,71 +2,54 @@ import Title from "./Title";
 import Marquee from "react-fast-marquee";
 
 // Example phone companies
-const companies = [
+const people = [
   {
     id: 1,
-    name: "Samsung",
+    name: "Elon Musk",
     image:
-      "https://e7.pngegg.com/pngimages/752/825/png-clipart-samsung-galaxy-e7-samsung-galaxy-j2-samsung-galaxy-a8-a8-logo-samsung-blue-electronics-thumbnail.png",
+      "https://futureoflife.org/wp-content/uploads/2020/08/elon_musk_royal_society.jpg",
   },
   {
     id: 2,
-    name: "Apple",
+    name: "Bill Gates",
     image:
-      "https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg",
+      "https://yt3.googleusercontent.com/Lkdq6f24FLF4U0AnMrGXQ-qOfhCdF-SMblNC5rOtVvBGRT4SkUDBt_Gb1Wg5sICw6SSHl51INUk=s900-c-k-c0x00ffffff-no-rj",
   },
   {
     id: 3,
-    name: "Xiaomi",
+    name: "Sundar Pichai",
     image:
-      "https://upload.wikimedia.org/wikipedia/commons/2/29/Xiaomi_logo.svg",
+      "https://s7d1.scene7.com/is/image/wbcollab/sundar_pichai_google_ceo-1?qlt=75&resMode=sharp2",
   },
   {
     id: 4,
-    name: "Motorola",
+    name: "Mark Zuckerberg",
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnCiR6dtcVHc4_WzLJlXeol7-pvOQKHQ3yxQ&s",
+      "https://upload.wikimedia.org/wikipedia/commons/3/31/Mark_Zuckerberg_at_the_37th_G8_Summit_in_Deauville_018_v1.jpg",
   },
   {
     id: 5,
-    name: "Oppo",
-    image: "https://crystalpng.com/wp-content/uploads/2025/05/oppo-logo.png",
+    name: "Jeff Bezos",
+    image:
+      "https://imageio.forbes.com/specials-images/imageserve/67531eb2b5f7c9e191f632d7/0x0.jpg?format=jpg&crop=711,713,x316,y125,safe&height=416&width=416&fit=bounds",
   },
   {
     id: 6,
-    name: "Vivo",
+    name: "Tim Cook",
     image:
-      "https://images.seeklogo.com/logo-png/45/1/vivo-vivo-logo-png_seeklogo-453184.png",
+      "https://pbs.twimg.com/profile_images/1535420431766671360/Pwq-1eJc_400x400.jpg",
   },
   {
     id: 7,
-    name: "OnePlus",
+    name: "Larry Page",
     image:
-      "https://e7.pngegg.com/pngimages/815/372/png-clipart-oneplus-6-oneplus-5t-oneplus-2-oneplus-one-text-trademark-thumbnail.png",
+      "https://hips.hearstapps.com/hmg-prod/images/gettyimages-83414114.jpg",
   },
   {
     id: 8,
-    name: "Samsung",
+    name: "Steve Jobs",
     image:
-      "https://e7.pngegg.com/pngimages/752/825/png-clipart-samsung-galaxy-e7-samsung-galaxy-j2-samsung-galaxy-a8-a8-logo-samsung-blue-electronics-thumbnail.png",
-  },
-  {
-    id: 9,
-    name: "Apple",
-    image:
-      "https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg",
-  },
-  {
-    id: 10,
-    name: "Xiaomi",
-    image:
-      "https://upload.wikimedia.org/wikipedia/commons/2/29/Xiaomi_logo.svg",
-  },
-  {
-    id: 11,
-    name: "Motorola",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnCiR6dtcVHc4_WzLJlXeol7-pvOQKHQ3yxQ&s",
+      "https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/13874040/stevejobs.1419962539.png?quality=90&strip=all&crop=0,13.457556935818,100,73.084886128364",
   },
 ];
 
@@ -78,15 +61,15 @@ const MarqueeCard = () => {
         <div className="flex gap-6 ">
           <Marquee pauseOnHover={true} speed={150}>
             {" "}
-            {companies.map((company) => (
+            {people.map((company) => (
               <div
                 key={company.id}
-                className="flex flex-col items-center justify-center min-w-[140px] gap-4 bg-white shadow-lg rounded-xl p-4"
+                className="flex flex-col items-center rounded-md justify-center  min-w-[200px] bg-white  p-4"
               >
                 <img
                   src={company.image}
                   alt={company.name}
-                  className="h-12 object-contain mb-2"
+                  className="h-20 object-cover mb-2 rounded-md "
                 />
                 <p className="text-sm font-semibold text-gray-700">
                   {company.name}
