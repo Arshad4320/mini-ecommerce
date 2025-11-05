@@ -40,10 +40,10 @@ const Navbar = () => {
         Products
       </NavLink>
       <NavLink
-        to="/product/orders"
+        to="/product/cart"
         className="text-lg text-gray-700 hover:text-blue-600 transition"
       >
-        Orders
+        Cart
       </NavLink>
     </>
   );

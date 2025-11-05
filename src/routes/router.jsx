@@ -6,8 +6,9 @@ import Products from "../pages/Products";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import ProductDetails from "../pages/ProductDetails";
-import Order from "../pages/Order";
+import Order from "../pages/Cart";
 import PrivetRoute from "../privetRoute/PrivetRoute";
+import Cart from "../pages/Cart";
 
 const router = createBrowserRouter([
   {
@@ -33,11 +34,12 @@ const router = createBrowserRouter([
         element: <ProductDetails />,
       },
       {
-        path: "/product/orders",
+        path: "/product/cart",
+        loader: () => fetch("/mobile.json"),
         element: (
           <PrivetRoute>
             {" "}
-            <Order />
+            <Cart />
           </PrivetRoute>
         ),
       },

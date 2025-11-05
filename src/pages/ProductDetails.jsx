@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router";
 import Title from "../components/Title";
 import PhoneCard from "../components/PhonesCard";
+import { setPhoneIdIntoDb } from "../localStorage/localStorage";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -88,8 +89,11 @@ const ProductDetails = () => {
                 {color}
               </span>
             ))}
-            <button className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
-              Order Now
+            <button
+              onClick={() => setPhoneIdIntoDb(id)}
+              className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+            >
+              Add To Cart
             </button>
           </div>
         </div>

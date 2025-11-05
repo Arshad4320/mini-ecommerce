@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router";
+import { setPhoneIdIntoDb } from "../localStorage/localStorage";
+import { toast } from "react-toastify";
 
 const PhoneCard = ({ phone }) => {
   const { id, name, details, image, model, price, rating, title } = phone;
-
+  const handleAddToCart = (id) => {
+    setPhoneIdIntoDb(id);
+  };
   return (
     <div className="bg-white rounded-xl  shadow transition p-4 flex flex-col">
       {/* Product Image */}
@@ -35,8 +39,13 @@ const PhoneCard = ({ phone }) => {
 
       {/* Buttons */}
       <div className="mt-3 flex justify-between items-center">
-        <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg font-medium transition">
-          Order Now
+        <button
+          onClick={() => {
+            handleAddToCart(id);
+          }}
+          className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg font-medium transition"
+        >
+          Add To Cart
         </button>
         <Link
           to={`/product-details/${id}`}
