@@ -5,7 +5,7 @@ import PhoneCard from "../components/PhonesCard";
 
 const ProductDetails = () => {
   const { id } = useParams();
-  console.log(id);
+
   const [product, setProduct] = useState({});
 
   const [filteredPhone, setFilteredPhone] = useState([]);
@@ -79,27 +79,23 @@ const ProductDetails = () => {
           <h2 className="text-2xl font-semibold mb-3 text-gray-800">
             Available Colors
           </h2>
-          <div className="flex gap-4">
+          <div className="flex gap-4 justify-center">
             {product?.colors?.map((color, index) => (
               <span
                 key={index}
-                className="px-4 py-2 rounded-full bg-gray-200 text-gray-800 font-medium"
+                className="px-4 border border-green-400 hover:bg-white hover:text-green-600 py-2 rounded-full bg-green-100 text-gray-700 font-medium"
               >
                 {color}
               </span>
             ))}
+            <button className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+              Order Now
+            </button>
           </div>
         </div>
 
         {/* Buttons */}
-        <div className="mt-8 flex gap-4">
-          <button className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
-            Add to Cart
-          </button>
-          <button className="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700">
-            Buy Now
-          </button>
-        </div>
+        {/* <div className="mt-8 flex gap-4"></div> */}
       </div>
       <Title title={"Relevant phones"} />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 ">

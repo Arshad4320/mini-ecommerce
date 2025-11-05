@@ -1,9 +1,23 @@
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import { NavLink } from "react-router";
 import Hamburger from "hamburger-react";
+import { AuthContext } from "../authcontext/AuthProvider";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
   const [isOpen, setOpen] = useState(false);
+  const { user, logOutUser } = use(AuthContext);
+
+  const handleLogout = () => {
+    logOutUser()
+      .then(() => {
+        toast.success("user logout successfully");
+      })
+      .catch((err) => {
+        toast.error(err.errorMessage);
+        console.log(err.errorMessage);
+      });
+  };
 
   const navLinks = (
     <>
@@ -25,6 +39,12 @@ const Navbar = () => {
       >
         Products
       </NavLink>
+      <NavLink
+        to="/product/orders"
+        className="text-lg text-gray-700 hover:text-blue-600 transition"
+      >
+        Orders
+      </NavLink>
     </>
   );
 
@@ -38,18 +58,24 @@ const Navbar = () => {
         <div className="hidden lg:flex items-center space-x-6">{navLinks}</div>
 
         <div className="space-x-6 hidden lg:block">
-          <NavLink
-            to="/cart"
-            className="text-lg text-gray-700 hover:text-blue-600 transition"
-          >
-            Cart
+          <NavLink className="text-lg text-gray-700 hover:text-blue-600 transition">
+            {user?.displayName && user?.displayName}
           </NavLink>
-          <NavLink
-            to="/login"
-            className="text-lg text-gray-700 hover:text-blue-600 transition"
-          >
-            Login
-          </NavLink>
+          {user ? (
+            <NavLink
+              onClick={handleLogout}
+              className="text-lg text-gray-700 hover:text-blue-600 transition"
+            >
+              Logout
+            </NavLink>
+          ) : (
+            <NavLink
+              to="/login"
+              className="text-lg text-gray-700 hover:text-blue-600 transition"
+            >
+              Login
+            </NavLink>
+          )}
         </div>
 
         {/* Mobile Menu Button */}
@@ -67,18 +93,24 @@ const Navbar = () => {
         }`}
       >
         {navLinks}
-        <NavLink
-          to="/cart"
-          className="text-lg text-gray-700 hover:text-blue-600 transition"
-        >
-          Cart
+        <NavLink className="text-lg text-gray-700 hover:text-blue-600 transition">
+          {user?.displayName && user?.displayName}
         </NavLink>
-        <NavLink
-          to="/login"
-          className="text-lg text-gray-700 hover:text-blue-600 transition"
-        >
-          Login
-        </NavLink>
+        {user ? (
+          <NavLink
+            onClick={handleLogout}
+            className="text-lg text-gray-700 hover:text-blue-600 transition"
+          >
+            Logout
+          </NavLink>
+        ) : (
+          <NavLink
+            to="/login"
+            className="text-lg text-gray-700 hover:text-blue-600 transition"
+          >
+            Login
+          </NavLink>
+        )}
       </div>
     </nav>
   );

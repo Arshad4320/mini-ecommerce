@@ -1,8 +1,28 @@
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
+import { AuthContext } from "../authcontext/AuthProvider";
+import { toast } from "react-toastify";
 
 const Login = () => {
+  const { loginUser } = use(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    loginUser(email, password)
+      .then(() => {
+        e.target.reset();
+        toast("User logged successfully");
+        navigate(location.state || "/");
+      })
+      .catch((err) => {
+        console.log(err.errorMessage);
+        toast.error(err.errorMessage);
+      });
+  };
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
       <div className="bg-white w-full max-w-lg rounded-2xl shadow-md p-8">
@@ -10,7 +30,7 @@ const Login = () => {
           Login Account
         </h2>
 
-        <form className="space-y-4">
+        <form onSubmit={handleLogin} className="space-y-4">
           {/* Email */}
           <div>
             <label className="block text-gray-700 font-medium mb-1">
@@ -29,7 +49,7 @@ const Login = () => {
               Password
             </label>
             <input
-              name="address"
+              name="password"
               type="password"
               placeholder="password"
               rows="3"

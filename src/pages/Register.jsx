@@ -1,34 +1,38 @@
-import { updateCurrentUser } from "firebase/auth";
+import { updateProfile } from "firebase/auth";
 import React, { use, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../authcontext/AuthProvider";
 import { toast } from "react-toastify";
+import { auth } from "../firebase/firebaseConfig";
 
 const Register = () => {
   // const userInfo = { createUser, user, loginUser, logOutUser };
   const navigate = useNavigate();
-  const { createUser } = use(AuthContext);
+  const { createUser, user } = use(AuthContext);
+  console.log(user);
   const handleRegister = (e) => {
     e.preventDefault();
 
     const name = e.target.name.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
-
     createUser(email, password)
       .then((result) => {
         const user = result.user;
-        updateCurrentUser(user, (displayName = name));
+        return updateProfile(user, { displayName: name });
+      })
+      .then(() => {
         e.target.reset();
         toast.success("user created successfully");
         navigate("/");
-        console.log("form update user", user);
       })
       .catch((err) => {
         console.log(err.errorMessage);
+        toast.error(err.errorMessage);
       });
   };
+
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
       <div className="bg-white w-full max-w-lg rounded-2xl shadow-md p-8">
